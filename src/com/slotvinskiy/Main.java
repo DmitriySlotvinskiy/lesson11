@@ -26,6 +26,19 @@ public class Main {
             }
             personsList[i].setAge(RANDOM.nextInt(Person.AGE_BOUNCE));
             personsList[i].setHeight(toGetHeight(personsList[i].getAge()));
+            personsList[i].setWeight(toGetWeight(personsList[i].getHeight()));
+        }
+    }
+
+    private static int toGetWeight(int height) {
+        if ( height < 60) {
+            return 3 + RANDOM.nextInt(1);
+        } else if (height < 100) {
+            return 15 + RANDOM.nextInt(5);
+        } else if (height < 150) {
+           return 25 + RANDOM.nextInt(10);
+        } else {
+            return height - 100 + RANDOM.nextInt(5);
         }
     }
 
@@ -41,13 +54,16 @@ public class Main {
         } else if (age < 20) {
             return RANDOM.nextInt(15) + 155;
         } else if (age < 55) {
-            return RANDOM.nextInt(20) + 165;
+            return RANDOM.nextInt(15) + 165;
         } else {
-            return RANDOM.nextInt(20) + 160;
+            return RANDOM.nextInt(15) + 160;
         }
     }
 
     private static void toPrintListOfPersons(Person[] personsList) {
+        System.out.println(String.format("%-15s %-15s %6s %20s %11s   ",
+                "NAME", "SURNAME", "AGE", "WEIGHT", "HEIGHT"));
+        System.out.println("=======================================================================");
         for (int i = 0; i < personsList.length; i++) {
             System.out.println(personsList[i]);
         }

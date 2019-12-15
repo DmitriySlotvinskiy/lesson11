@@ -60,6 +60,10 @@ public class Person {
         this.gender = gender;
     }
 
+    public int getHeight() {
+        return height;
+    }
+
     public int getAge() {
         return age;
     }
@@ -90,13 +94,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", weight=" + weight +
-                ", height=" + height +
-                '}';
+        return String.format("%-15s %-10s %10s years %10s kg %10s cm", name, surname, age, weight, height);
     }
-
 }
