@@ -13,32 +13,23 @@ public class Person {
     public static final int GENDER_BOUNCE = 2;
     public static final int AGE_BOUNCE = 80;
     public static final int MIN_HEIGHT = 45;
-    public static final String[] MAN_NAMES = {"Адольф", "Артём", "Борис", "Владмир", "Владислав", "Дмитрий", "Денис",
-            "Евгений", "Жан-Франсуа", "Игорь", "Кирилл", "Леонид", "Михаил", "Николай", "Олег", "Петр", "Роман",
-            "Сергей", "Тимур", "Феликс", "Юрий", "Ян"};
 
-    private static final String[] MAN_SURNAMES = {"Арбузов", "Борисов", "Волошин", "Сорокин", "Упругий", "Зубов"};
 
-    private static final String[] WOMAN_NAMES = {"Алина", "Вера", "Галина", "Диана", "Ева", "Жанна", "Зоя", "Ирина",
-            "Кира", "Лилия", "Марина", "Наталья", "Ольга", "Полина", "Рита", "София", "Татьяна", "Эля", "Юлия", "Яна"};
-
-    private static final String[] WOMAN_SURNAMES = {"Арбузова", "Борисова", "Волошина", "Сорокина", "Упругая", "Зубова"};
-
-    private String name;
-    private String surname;
+    private String firstName;
+    private String secondName;
     private Gender gender;
     private int age;
     private int weight;
     private int height;
 
-    public Person(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
+    public Person(String firstName, String secondName) {
+        this.firstName = firstName;
+        this.secondName = secondName;
     }
 
-    public Person(String name, String surname, int age, int weight, int height) {
-        this.name = name;
-        this.surname = surname;
+    public Person(String firstName, String secondName, int age, int weight, int height) {
+        this.firstName = firstName;
+        this.secondName = secondName;
         this.age = age;
         this.weight = weight;
         this.height = height;
@@ -60,6 +51,26 @@ public class Person {
         this.gender = gender;
     }
 
+    public static Random getRANDOM() {
+        return RANDOM;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
     public int getHeight() {
         return height;
     }
@@ -76,24 +87,15 @@ public class Person {
         }
     }
 
-    public static String toGenerateManName() {
-        return MAN_NAMES[RANDOM.nextInt(MAN_NAMES.length)];
-    }
-
-    public static String toGenerateWomanName() {
-        return WOMAN_NAMES[RANDOM.nextInt(WOMAN_NAMES.length)];
-    }
-
-    public static String toGenerateManSurname() {
-        return MAN_SURNAMES[RANDOM.nextInt(MAN_SURNAMES.length)];
-    }
-
-    public static String toGenerateWomanSurname() {
-        return WOMAN_SURNAMES[RANDOM.nextInt(WOMAN_SURNAMES.length)];
-    }
-
     @Override
     public String toString() {
-        return String.format("%-15s %-10s %10s years %10s kg %10s cm", name, surname, age, weight, height);
+        return "Person{" +
+                "name='" + firstName + '\'' +
+                ", surname='" + secondName + '\'' +
+                ", gender=" + gender +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", height=" + height +
+                '}';
     }
 }

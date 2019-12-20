@@ -18,10 +18,10 @@ public class Main {
     private static void toGeneratePersonsList(Person[] personsList) {
         for (int i = 0; i < NAMES_LIST_SIZE; i++) {
             if (Person.toGenerateGender() == Gender.MALE) {
-                personsList[i] = new Person(Person.toGenerateManName(), Person.toGenerateManSurname());
+                personsList[i] = new Person(PersonMethods.generateManName(), PersonMethods.generateManSurname());
                 personsList[i].setGender(Gender.MALE);
             } else {
-                personsList[i] = new Person(Person.toGenerateWomanName(), Person.toGenerateWomanSurname());
+                personsList[i] = new Person(PersonMethods.generateWomanName(), PersonMethods.generateWomanSurname());
                 personsList[i].setGender(Gender.FEMALE);
             }
             personsList[i].setAge(RANDOM.nextInt(Person.AGE_BOUNCE));
@@ -65,7 +65,7 @@ public class Main {
                 "NAME", "SURNAME", "AGE", "WEIGHT", "HEIGHT"));
         System.out.println("=======================================================================");
         for (int i = 0; i < personsList.length; i++) {
-            System.out.println(personsList[i]);
+            PersonMethods.printPerson(personsList[i]);
         }
     }
 
